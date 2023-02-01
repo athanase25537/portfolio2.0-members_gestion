@@ -12,7 +12,9 @@ function login($username, $password){
     if($userToLog->canConnect($username, $password)){
         session_start();
         $_SESSION['username'] = $username;
-        return true;
+        echo 'bienvenue ' . $_SESSION['username'];
+        $user = $userToLog->users->getUser($username);
+        return $user;
     }
-    return false;
+    header('Location:index.php?action=login&status=failed');
 }

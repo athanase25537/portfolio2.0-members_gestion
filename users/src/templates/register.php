@@ -31,6 +31,8 @@ ob_start();
     </select>
 
     <button class="btn btn-primary" type="submit">Valider</button>
+    <a href="index.php?action=login">Already have an account</a>
+
 </form>
 <?php
 $content = ob_get_clean();

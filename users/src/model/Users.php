@@ -14,12 +14,12 @@ class Users
         return $users;
     }
 
-    public function getUser($id)
+    public function getUser($username)
     {
-        $query = 'SELECT * FROM ' . self::DB_NAME . ' WHERE id = :id';
+        $query = 'SELECT * FROM ' . self::DB_NAME . ' WHERE username = :username';
         $userStatement = $this->connection->connectToDb()->prepare($query);
         $userStatement->execute([
-            'id' => $id
+            'username' => $username
         ]);
 
         $user = $userStatement->fetch(PDO::FETCH_ASSOC);
